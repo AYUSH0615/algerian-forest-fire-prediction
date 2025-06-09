@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algerian Forest Fire Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Forest Fire Weather Index (FWI)</h1>
+        <form action="/predict" method="post">
+            <label for="FFMC">FFMC:</label>
+            <input type="number" step="0.01" name="FFMC" required><br>
+
+            <label for="DMC">DMC:</label>
+            <input type="number" step="0.01" name="DMC" required><br>
+
+            <label for="DC">DC:</label>
+            <input type="number" step="0.01" name="DC" required><br>
+
+            <label for="ISI">ISI:</label>
+            <input type="number" step="0.01" name="ISI" required><br>
+            <label for="BUI">BUI:</label> <input type="number" step="0.01" name="BUI" required><br> 
+            <label for="temp">Temperature:</label>
+            <input type="number" step="0.01" name="temp" required><br>
+
+            <label for="RH">RH:</label>
+            <input type="number" step="0.01" name="RH" required><br>
+
+            <label for="wind">Wind:</label>
+            <input type="number" step="0.01" name="wind" required><br>
+
+            <label for="rain">Rain:</label>
+            <input type="number" step="0.01" name="rain" required><br>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
